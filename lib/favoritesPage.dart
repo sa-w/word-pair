@@ -11,6 +11,12 @@ class FavoritesPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
     var favoriteItems = appState.favorites;
 
+    if (favoriteItems.isEmpty) {
+      return const Center(
+        child: Text('No favorites yet.'),
+      );
+    }
+
     return Container(
       margin: const EdgeInsets.only(top: 25.0),
       child: ListView(
